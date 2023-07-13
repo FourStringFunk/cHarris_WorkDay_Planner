@@ -1,16 +1,16 @@
 $(function () {
   // Code displays the current date in the header of the page using
-  const dayjs = require('dayjs');
   let currentDay = $("#currentDay");
   currentDay.text(dayjs().format("dddd, MMMM D, YYYY")); 
   
 // TODO: Add a listener for click events on the save button.
   const saveButtons = $(".time-block").children("button"); // selects all the button elements that are children of the div class="time-block"
 
+  // on click, saves the event name and ID to local storage
   for(let i = 0; i < saveButtons.length; i++) {
     $(saveButtons[i].click(function() {
-      let userInput = $(saveButtons[i]).parent().children("textarea").val();
-      let inputID = $(saveButtons[i].parent().attr("id"));
+      let userInput = $(saveButtons[i]).parent().children("textarea").val(); // gets the current value of the textarea elements.
+      let inputID = $(saveButtons[i].parent().attr("id")); // gets value of the ID attribute
       // save to local storage here?
     }));
   }
