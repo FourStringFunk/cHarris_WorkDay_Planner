@@ -1,12 +1,15 @@
 $(function () {
-
+  // Code displays the current date in the header of the page using
+  const dayjs = require('dayjs');
+  let currentDay = $("#currentDay");
+  currentDay.text(dayjs().format("dddd, MMMM D, YYYY")); 
+  
 // TODO: Add a listener for click events on the save button. 
 
 // TODO: Add code to apply the past, present, or future class to each time
 
 // TODO: Add code to display the current date in the header of the page
 
-// Code displays the current date in the header of the page using 
 
 });
 
