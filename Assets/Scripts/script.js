@@ -9,15 +9,15 @@ $(function () {
   // on click, saves the event name and ID to local storage
   for(let i = 0; i < saveButtons.length; i++) {
     console.log("before click");
-    $(saveButtons[i].click(function() {
+    $(saveButtons[i]).click(function() {
       console.log("after click");
       let userInput = $(saveButtons[i]).parent().children("textarea").val(); // gets the current value of the textarea elements.
       console.log("after user input");
-      let inputID = $(saveButtons[i].parent().attr("id")); // gets value of the ID attribute
-      console.log("after inputID")
+      let inputID = $(saveButtons[i]).parent().attr("id"); // gets value of the ID attribute
+      console.log("after inputID");
       localStorage.setItem(userInput, inputID); // applies the values captured for userInput and inputID into local storage
       console.log(localStorage);
-    }));
+    });
   }
 
   // get items from local storage on page load
