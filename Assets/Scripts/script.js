@@ -4,9 +4,19 @@ $(function () {
   let currentDay = $("#currentDay");
   currentDay.text(dayjs().format("dddd, MMMM D, YYYY")); 
   
-// TODO: Add a listener for click events on the save button. 
+// TODO: Add a listener for click events on the save button.
+  const saveButtons = $(".time-block").children("button"); // selects all the button elements that are children of the div class="time-block"
 
+  for(let i = 0; i < saveButtons.length; i++) {
+    $(saveButtons[i].click(function() {
+      let userInput = $(saveButtons[i]).parent().children("textarea").val();
+      let inputID = $(saveButtons[i].parent().attr("id"));
+      // save to local storage here?
+    }));
+  }
 // TODO: Add code to apply the past, present, or future class to each time
+// Change class by comparing the hour in the id to the current hour 
+
 
 // TODO: Add code to display the current date in the header of the page
 
