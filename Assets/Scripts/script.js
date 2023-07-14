@@ -27,15 +27,20 @@ $(function () {
 
 // TODO: Add code to apply the past, present, or future class to each time
 // Change class by comparing the hour in the id to the current hour 
-  for (let i = 0; i < 25; i++) { // run the for loop when i is less than 25
-    var currentHour = dayjs().hour(); // set the variable currentHour to the current our of the day using day.js
-    if (localStorage.getItem("hour-" + i) < currentHour) { // if id "hour-" number is less than current hour, apply "past" class
+  var currentHour = dayjs().hour(); // set the variable currentHour to the current our of the day using day.js
+  var time = $(".time").text();
+  var timeINT = parseInt(time);
+
+  for (let i = 1; i < 25; i++) { // run the for loop when i is less than 25
+    if (timeINT[i] < currentHour) { // if id "hour-" number is less than current hour, apply "past" class
+      console.log("past");
       $(".time-block").addClass("past");
-    } else if (localStorage.getItem("hour-" i) > currentHour) {
+    } else if (timeINT[i] > currentHour) {
       console.log("inside future");
       $(".time-block").addClass("future");
     } else {
       console.log("inside present");
+      console.log("present");
       $(".time-block").addClass("present");
     }
   }
