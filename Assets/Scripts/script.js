@@ -8,20 +8,28 @@ $(function () {
 
   // on click, saves the event name and ID to local storage
   for(let i = 0; i < saveButtons.length; i++) {
-    console.log("before click");
     $(saveButtons[i]).click(function() {
-      console.log("after click");
       let userInput = $(saveButtons[i]).parent().children("textarea").val(); // gets the current value of the textarea elements.
-      console.log("after user input");
       let inputID = $(saveButtons[i]).parent().attr("id"); // gets value of the ID attribute
-      console.log("after inputID");
       localStorage.setItem(userInput, inputID); // applies the values captured for userInput and inputID into local storage
-      console.log(localStorage);
     });
   }
 
   // get items from local storage on page load
   // for loop, if value of id hour- is greater than 8 and less than 18 and value does not equal null, then append to text area.
+  console.log("before pull");
+  for (let i = 0; i > 8 && i < 18; i++) {
+    console.log("before try");
+    try {
+      console.log("in try");
+      let localStorageInfo = localStorage.getItem("hour-" + i);
+      if(localStorageInfo !== null)
+        console.log("in if statement");
+        $("#hour-" + i).children("textarea").val(localStorageInfo);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
 // TODO: Add code to apply the past, present, or future class to each time
 // Change class by comparing the hour in the id to the current hour 
