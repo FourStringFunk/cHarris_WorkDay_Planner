@@ -15,18 +15,12 @@ $(function () {
     });
   }
 
-  // get items from local storage on page load
-  // for loop, if value of id hour- is greater than 8 and less than 18 and value does not equal null, then append to text area.
-  console.log("before pull");
-  for (let i = 0; (i > 8) && (i < 18); i++) {
-    console.log("before try");
+  // get items from local storage on page load and append values to text area
+  for (let i = 0; i < 25; i++) { // when the numerical value after the "hour-" key is less than 25--within 24 hours military time, run the for loop
     try {
-      console.log("in try");
-      let localStorageInfo = localStorage.getItem("hour-" + i);
-      if(localStorageInfo !== null)
-        console.log("in if statement");
-        $("#hour-" + i).children("textarea").val(localStorageInfo);
-    } catch (err) {
+      if(localStorage.getItem("hour-" + i) !== null) // if the numerical value after "hour-" key isn't null...
+        $("#hour-" + i).children("textarea").val(localStorage.getItem("hour-" + i)); // ...then apply append the textarea value from localStorage to the textarea
+    } catch (err) { // console log an error if applicable
       console.log(err);
     }
   }
@@ -59,5 +53,3 @@ $(function () {
 // TODO: Add code to get any user input that was saved in localStorage and set
 // the values of the corresponding textarea elements. HINT: How can the id
 // attribute of each time-block be used to do this?
-
-// TODO: Add code to display the current date in the header of the page
