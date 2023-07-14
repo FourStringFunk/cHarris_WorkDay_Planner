@@ -11,14 +11,14 @@ $(function () {
     $(saveButtons[i]).click(function() {
       let userInput = $(saveButtons[i]).parent().children("textarea").val(); // gets the current value of the textarea elements.
       let inputID = $(saveButtons[i]).parent().attr("id"); // gets value of the ID attribute
-      localStorage.setItem(userInput, inputID); // applies the values captured for userInput and inputID into local storage
+      localStorage.setItem(inputID, userInput); // applies the values captured for userInput and inputID into local storage
     });
   }
 
   // get items from local storage on page load
   // for loop, if value of id hour- is greater than 8 and less than 18 and value does not equal null, then append to text area.
   console.log("before pull");
-  for (let i = 0; i > 8 && i < 18; i++) {
+  for (let i = 0; (i > 8) && (i < 18); i++) {
     console.log("before try");
     try {
       console.log("in try");
