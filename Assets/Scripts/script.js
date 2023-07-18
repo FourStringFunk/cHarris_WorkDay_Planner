@@ -28,49 +28,24 @@ $(function () {
 // TODO: Add code to apply the past, present, or future class to each time
 // Change class by comparing the hour in the id to the current hour 
   var currentHour = dayjs().hour(); // set the variable currentHour to the current our of the day using day.js
-  var time = $(".time").text();
-  var timeINT = parseInt(time);
+  var timeINT = document.querySelectorAll('.time');
 
-  for (let i = 1; i < 25; i++) { // run the for loop when i is less than 25
-    if (timeINT[i] < currentHour) { // if id "hour-" number is less than current hour, apply "past" class
-      $(".time-block").addClass("past");
-    } else if (timeINT[i] > currentHour) {
-      $(".time-block").addClass("future");
-    } else {
-      $(".time-block").addClass("present");
+
+  for (let i = 0; i < 25; i++) { // run the for loop when i is less than 25
+    var timeINTValue = $(timeINT[i]).text(); // pull the value of the time from the timeINT variable
+
+    // applies different classes based on wether the value in the div class "time" is less than, greater than, or equal to and applies the appropriate class.
+    if (timeINTValue < currentHour) {
+        $(timeINT[i]).parent().addClass("past");
+      } 
+    else if (timeINTValue > currentHour) {
+        $(timeINT[i]).parent().addClass("future");
+      }
+    else {
+        $(timeINT[i]).parent().addClass("present");
+      }
     }
-  }
-
-// Switch from military time to standard time.
-var timeSwitch = document.querySelectorAll(".time");
-var text;
-  
-switch(timeSwitch) {
-  case "8":
-    text = "8:00 am";
-    break;
-}
-
-});
 
 
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
 
-// TODO: Add a listener for click events on the save button. This code should
-// use the id in the containing time-block as a key to save the user input in
-// local storage. HINT: What does `this` reference in the click listener
-// function? How can DOM traversal be used to get the "hour-x" id of the
-// time-block containing the button that was clicked? How might the id be
-// useful when saving the description in local storage?
-
-// TODO: Add code to apply the past, present, or future class to each time
-// block by comparing the id to the current hour. HINTS: How can the id
-// attribute of each time-block be used to conditionally add or remove the
-// past, present, and future classes? How can Day.js be used to get the
-// current hour in 24-hour time?
-
-// TODO: Add code to get any user input that was saved in localStorage and set
-// the values of the corresponding textarea elements. HINT: How can the id
-// attribute of each time-block be used to do this?
+  })
