@@ -33,17 +33,24 @@ $(function () {
 
   for (let i = 1; i < 25; i++) { // run the for loop when i is less than 25
     if (timeINT[i] < currentHour) { // if id "hour-" number is less than current hour, apply "past" class
-      console.log("past");
       $(".time-block").addClass("past");
     } else if (timeINT[i] > currentHour) {
-      console.log("inside future");
       $(".time-block").addClass("future");
     } else {
-      console.log("inside present");
-      console.log("present");
       $(".time-block").addClass("present");
     }
   }
+
+// Switch from military time to standard time.
+var timeSwitch = document.querySelectorAll(".time");
+var text;
+  
+switch(timeSwitch) {
+  case "8":
+    text = "8:00 am";
+    break;
+}
+
 });
 
 
