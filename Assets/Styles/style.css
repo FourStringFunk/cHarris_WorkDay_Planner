@@ -1,6 +1,9 @@
+h1, .lead, #currentDay  {text-align: center;}
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
+  padding: 15px;
 }
 
 textarea {
