@@ -31,7 +31,7 @@ GIVEN I am using a daily planner to create a schedule
 - Changes military time to standard time using switch.
 
 ### GITHUB REPO
-- https://github.com/FourStringFunk/charris_code_quiz
+- [https://github.com/FourStringFunk/charris_code_quiz](https://github.com/FourStringFunk/cHarris_WorkDay_Planner)
 
 ### LIVE SITE
 - https://fourstringfunk.github.io/cHarris_WorkDay_Planner/
